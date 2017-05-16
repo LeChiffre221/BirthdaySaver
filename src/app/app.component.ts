@@ -6,7 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Contact } from '../pages/contact/contact';
 import { Importation } from '../pages/importation/importation';
 import { Parametres } from '../pages/parametres/parametres';
-
+import firebase from 'firebase';
 
 @Component({
   templateUrl: 'app.html'
@@ -29,6 +29,14 @@ export class MyApp {
       { title: 'Paramètres', component: Parametres }
 
     ];
+
+    firebase.initializeApp({
+      apiKey: "AIzaSyDBCsMJIsKV4i0YteeAcRJ0tDJVFVqISRw",
+      authDomain: "birthdaysaver.firebaseapp.com",
+      databaseURL: "https://birthdaysaver.firebaseio.com",
+      storageBucket: "birthdaysaver.appspot.com",
+      messagingSenderId: "788615401656"
+    });
 
   }
 

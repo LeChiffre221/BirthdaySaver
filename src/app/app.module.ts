@@ -9,7 +9,8 @@ import { Parametres } from '../pages/parametres/parametres';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Facebook } from '@ionic-native/facebook'
+import { Facebook } from '@ionic-native/facebook';
+import firebase from 'firebase';
 
 @NgModule({
   declarations: [

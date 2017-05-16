@@ -16,7 +16,8 @@ export class Importation {
 
   }
 
-  /facebookLogin(): void {
+  facebookLogin(): void {
+    console.log("Je suis dans la méthode FacebookLogin");
     this.facebook.login(['email']).then( (response) => {
       const facebookCredential = firebase.auth.FacebookAuthProvider
         .credential(response.authResponse.accessToken);
@@ -36,4 +37,4 @@ export class Importation {
 
 
 
-    }
+}
