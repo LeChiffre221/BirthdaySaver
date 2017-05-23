@@ -14,7 +14,14 @@
     Importation avec Facebook
   </button>
 
-  <ion-card *ngIf="userProfile">
+  <ion-list>
+    <button ion-item *ngFor="let friend of friendList">
+      <div class="item-note" item-right>
+        {{friend.name}} : {{friend.id}}
+      </div>
+    </button>
+  </ion-list>
+  <!--<ion-card *ngIf="userProfile">
     <img [src]="userProfile.photoURL"/>
     <ion-card-content>
       <ion-card-title>
@@ -24,7 +31,7 @@
         Identifiant utilisateur : {{userProfile.uid}}, email : {{userProfile.email}}
       </p>
     </ion-card-content>
-  </ion-card>
+  </ion-card>-->
 
 
 </ion-content>
