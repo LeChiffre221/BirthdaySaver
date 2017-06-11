@@ -14,5 +14,11 @@
    Liste des contacts
   </p>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <ion-list>
+    <button ion-item *ngFor="let contact of allContacts">
+      <div class="item-note" item-right>
+        OH
+      </div>
+    </button>
+  </ion-list>
 </ion-content>

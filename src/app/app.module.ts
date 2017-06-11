@@ -10,6 +10,7 @@ import { Parametres } from '../pages/parametres/parametres';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Facebook } from '@ionic-native/facebook';
+import {Contacts} from "@ionic-native/contacts";
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { Facebook } from '@ionic-native/facebook';
     StatusBar,
     SplashScreen,
     Facebook,
+
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

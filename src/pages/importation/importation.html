@@ -14,13 +14,27 @@
     Importation avec Facebook
   </button>
 
+  <button ion-button center (click)="contactImportation()">
+    Importation des contacts
+  </button>
+
   <ion-list>
     <button ion-item *ngFor="let friend of friendList">
       <div class="item-note" item-right>
-        {{friend.name}} : {{friend.id}}
+        {{friend.id}}
       </div>
     </button>
   </ion-list>
+
+  <ion-list>
+    <button ion-item *ngFor="let contact of allContacts">
+      <div class="item-note" item-right (click)="sendSMS(contact)">
+        {{contact.displayName}}
+      </div>
+    </button>
+  </ion-list>
+
+
   <!--<ion-card *ngIf="userProfile">
     <img [src]="userProfile.photoURL"/>
     <ion-card-content>
