@@ -1,0 +1,26 @@
+<ion-content padding>
+  <h3>Que voulez vous faire avec le contact {{contact.displayName}} ?</h3>
+
+  <button ion-button center (click)="sendSMS(contact)">
+    Envoyer le SMS
+  </button>
+
+  <button ion-button center (click)="formContact(contact)">
+    Editer le contact
+  </button>
+
+  <div *ngIf="formOpen">
+    <ion-item>
+      <ion-label>Anniversaire de {{contact.displayName}}</ion-label>
+      <ion-input type="date" [(ngModel)]="contact.birthday" [ngModelOptions]="{standalone: true}"></ion-input>
+    </ion-item>
+
+    <button ion-button center (click)="validForm()">
+      Valider
+    </button>
+
+  </div>
+
+</ion-content>
+
+

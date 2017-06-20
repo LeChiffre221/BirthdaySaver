@@ -1,24 +1,20 @@
 import {Component, ViewChild} from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import { Nav, Platform } from 'ionic-angular';
-
-
-
-
+import { ImportationService } from '../../app/importation.service';
 import { Facebook } from '@ionic-native/facebook';
+import { Contacts } from '@ionic-native/contacts';
 import firebase from 'firebase';
-import {Observable} from "rxjs/Observable";
-
-import { Contacts, ContactFieldType, ContactFindOptions } from '@ionic-native/contacts';
-import { SMS } from '@ionic-native/sms';
-import { Contact } from '../contact/contact';
+import { FacebookService } from "../../app/facebook.service";
+import { ModalChoice } from  "../modal/modalChoice";
 
 
+//import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'page-importation',
   templateUrl: 'importation.html',
-  providers: [Contacts, SMS]
+  providers: [Contacts, ImportationService, FacebookService]
 })
 
 export class Importation {
@@ -29,65 +25,35 @@ export class Importation {
   userFriendList: any = null;
   friendList: Array<{ id: string, name: string }>;
   friendInformation: any = null;
-  myObservable: Observable<Array<number>>;
+  //myObservable: Observable<Array<number>>;
 
   allContacts: any = null
 
 
-  constructor(public navCtrl: NavController, private facebook: Facebook, private contacts: Contacts, private sms: SMS) {
+  constructor(public navCtrl: NavController,  private importationService: ImportationService,
+              private facebookService: FacebookService, public modalCtrl: ModalController) {
+  }
 
-
+  showModalChoice(contact): void{
+    let contactModal = this.modalCtrl.create(ModalChoice, {contact: contact});
+    contactModal.present();
   }
 
   contactImportation(): void{
-
-    this.contacts.find(['*']).then((contacts)=>{
-      console.log(JSON.stringify(contacts[0]));
-      console.log(contacts[0].displayName);
-      this.allContacts = contacts;
+    let p = this.importationService.contactImportation();
+    p.then(() => {
+      this.allContacts = this.importationService.allContacts;
     })
-
   }
 
-  sendSMS(contact): void{
-    console.log(contact.phoneNumbers[0].value);
-
-    this.sms.send(contact.phoneNumbers[0].value, 'helloWorld', {})
-      .then(() => {
-        alert("SMS envoyé")
-      },()=> {
-        alert("Echec envoi SMS")
-      });
-
-
-  }
-
-
-  facebookLogin(): void {
-
-    let p = this.facebook.login(['email']).then((response) => {
-      const facebookCredential = firebase.auth.FacebookAuthProvider
-        .credential(response.authResponse.accessToken);
-
-      return firebase.auth().signInWithCredential(facebookCredential)
-        .then((success) => {
-          this.userProfile = success;
-          return this.userProfile;
-        })
-        .catch((error) => {
-          console.log("Firebase failure: " + JSON.stringify(error));
-        })
-
-    }).catch((error) => {
-      console.log(error)
-    });
-
+  facebookImportation(): void {
+    let p = this.facebookService.connexion();
 
     /*p.then(() => {
       this.facebookGetFriendList();
     })*/
-
   }
+
   /*
   METHODE DE RÉCUPERATION DES AMIS FACEBOOK IMPOSSIBLE A CAUSE DE LA POLITIQUE DE CONFIDENTIALITÉ DE FACEBOOK
   facebookGetFriendList(): void {

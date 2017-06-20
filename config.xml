@@ -3,12 +3,14 @@
     <name>BirthdaySaver</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.1.85:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
     <allow-navigation href="http://192.168.1.13:8100" />
     <allow-navigation href="http://192.168.231.1:8100" />
     <allow-navigation href="http://192.168.1.85:8100" />
+    <allow-navigation href="http://192.168.109.1:8100" />
+    <allow-navigation href="http://172.27.130.249:8100" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -92,6 +94,6 @@
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
     <plugin name="cordova-plugin-statusbar" spec="2.2.2" />
     <plugin name="cordova-plugin-whitelist" spec="1.3.1" />
+    <plugin name="cordova-sms-plugin" spec="git+https://github.com/cordova-sms/cordova-sms-plugin.git" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
-    <plugin name="cordova-sms-plugin" spec="https://github.com/cordova-sms/cordova-sms-plugin.git" />
 </widget>

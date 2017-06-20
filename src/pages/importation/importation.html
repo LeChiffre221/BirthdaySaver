@@ -10,7 +10,7 @@
 <ion-content padding>
   <h3>Importation</h3>
 
-  <button ion-button center (click)="facebookLogin()">
+  <button ion-button center (click)="facebookImportation()">
     Importation avec Facebook
   </button>
 
@@ -28,7 +28,7 @@
 
   <ion-list>
     <button ion-item *ngFor="let contact of allContacts">
-      <div class="item-note" item-right (click)="sendSMS(contact)">
+      <div class="item-note" item-right (click)="showModalChoice(contact)">
         {{contact.displayName}}
       </div>
     </button>

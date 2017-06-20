@@ -2,11 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { Contact } from '../pages/contact/contact';
 import { Importation } from '../pages/importation/importation';
-import { Parametres } from '../pages/parametres/parametres';
-import firebase from 'firebase';
+
+
 
 @Component({
   templateUrl: 'app.html'
@@ -14,7 +12,7 @@ import firebase from 'firebase';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Contact;
+  rootPage: any = Importation;
 
   //Tableau permettant de lister toutes mes pages afin de lister dans le menu
   pages: Array<{title: string, component: any}>;
@@ -24,9 +22,7 @@ export class MyApp {
 
     //Utiliser par le ngFor dans le menu
     this.pages = [
-      { title: 'Contact', component: Contact },
       { title: 'Importation', component: Importation },
-      { title: 'Paramètres', component: Parametres }
 
     ];
 

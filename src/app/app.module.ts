@@ -3,9 +3,9 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { Contact } from '../pages/contact/contact';
 import { Importation } from '../pages/importation/importation';
-import { Parametres } from '../pages/parametres/parametres';
+import { ModalChoice } from '../pages/modal/modalChoice';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,9 +16,9 @@ import {Contacts} from "@ionic-native/contacts";
 @NgModule({
   declarations: [
     MyApp,
-    Contact,
     Importation,
-    Parametres
+    ModalChoice,
+
   ],
   imports: [
     BrowserModule,
@@ -27,9 +27,9 @@ import {Contacts} from "@ionic-native/contacts";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    Contact,
     Importation,
-    Parametres
+    ModalChoice
+
   ],
   providers: [
     StatusBar,
