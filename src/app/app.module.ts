@@ -10,6 +10,7 @@ import { ModalChoice } from '../pages/modal/modalChoice';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Facebook } from '@ionic-native/facebook';
+import * as firebase from 'firebase';
 import {Contacts} from "@ionic-native/contacts";
 
 
